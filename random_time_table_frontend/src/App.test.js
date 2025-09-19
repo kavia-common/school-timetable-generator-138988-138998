@@ -1,8 +1,14 @@
 import { render, screen } from '@testing-library/react';
 import App from './App';
 
-test('renders learn react link', () => {
+test('renders header title', () => {
   render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+  const title = screen.getByText(/Random Timetable/i);
+  expect(title).toBeInTheDocument();
+});
+
+test('has generate button', () => {
+  render(<App />);
+  const btn = screen.getByRole('button', { name: /Generate Timetable/i });
+  expect(btn).toBeInTheDocument();
 });
