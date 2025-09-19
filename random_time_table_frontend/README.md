@@ -2,6 +2,37 @@
 
 This project provides a minimal React template with a clean, modern UI and minimal dependencies.
 
+## Supabase Integration (Setup Required)
+
+1. Install dependencies:
+   - npm install @supabase/supabase-js react-router-dom
+
+2. Create `.env` in `random_time_table_frontend/`:
+   - REACT_APP_SUPABASE_URL=https://YOUR-PROJECT-REF.supabase.co
+   - REACT_APP_SUPABASE_ANON_KEY=YOUR_ANON_PUBLIC_KEY
+   - REACT_APP_SITE_URL=http://localhost:3000
+
+3. Supabase Dashboard:
+   - Authentication > URL Configuration
+     - Site URL: your production domain
+     - Redirect URLs:
+       - http://localhost:3000/**
+       - https://yourapp.com/**
+   - Optional: Update email templates as needed.
+
+4. Routes added:
+   - /auth/callback (handles OAuth/magic link callback)
+   - /auth/reset-password (placeholder)
+   - /auth/error (generic error page)
+
+5. Helpers:
+   - src/utils/getURL.js
+   - src/utils/supabase.js
+   - src/utils/auth.js
+   - src/auth/AuthCallback.js
+
+6. After setting env vars, restart dev server.
+
 ## Features
 
 - **Lightweight**: No heavy UI frameworks - uses only vanilla CSS and React
